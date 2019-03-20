@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="主页介绍的一句话">
+  <meta name="keywords" content>
+  
+    <link rel="icon" href="/img/icon.png">
+  
+    
+  <title>借助Hexo&amp;GitHub搭建个人博客 | 徐浩程 | Blog</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class="logo" href="/">
+      <span>徐浩程 | Blog</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">主页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id="post">
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>借助Hexo&amp;GitHub搭建个人博客</h1>
+          <div class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2019年03月17日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>/ <a class="article-category-link" href="/categories/技术/前端/">前端</a>/ <a class="article-category-link" href="/categories/技术/前端/个人博客/">个人博客</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                
+               
+  <a href="/tags/#Hexo" class="tag">Hexo</a>
+
+  <a href="/tags/#GitHub" class="tag">GitHub</a>
+
+
+            
+          </div>
+          <p>许多学生与在职人员希望能维护一个聚焦于内容的个人博客，但迫于服务器昂贵的价格、冗长繁琐的开发周期以及高昂的维护成本，一直没有得以实现。<br><br>Hexo&amp;GitHub很好的解决了这个问题：Hexo是一款基于Node.js的静态博客框架;GitHub Pages为用户提供支持部署静态页面的平台。两者结合，可快速搭建出美观实用的静态网页。</p>
+<p>本文中将介绍Hexo安装、Hexo静态网页生成、GitHub Pages部署。</p>
+<blockquote>
+<p>Hexo官网 : <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a><br>GitHub Pages官网 : <a href="https://pages.github.com/" target="_blank" rel="noopener">https://pages.github.com/</a></p>
+</blockquote>
+<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>Hexo是一个快速、简介且高效的博客框架，基于Node.js，使用Markdown解析文章，并可在极端时间内渲染出美观的静态网页。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>安装 Hexo 相当简单。然而在安装前，电脑中需要有Node.js与Git应用程序。</p>
+<p>为了快速安装Hexo,我们需要安装npm包管理工具,所幸的是，npm是随同Node.js一起安装的包管理工具,因此直接下载node.js就能满足Hexo的安装条件之一。</p>
+<p>下面给出Node.js和Git的下载地址：</p>
+<blockquote>
+<p>Node.js下载官网 : <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a><br>Git下载官网 : <a href="https://www.git-scm.com/download/" target="_blank" rel="noopener">https://www.git-scm.com/download/</a></p>
+</blockquote>
+<p>在安装之后，在命令行中可用npm -v和node –version和git –version来判断安装状态：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt; npm -v</span><br><span class="line">5.6.0</span><br><span class="line">&gt;&gt; node --version</span><br><span class="line">v8.11.4</span><br><span class="line">&gt;&gt; git --version</span><br><span class="line">git version 2.19.1.windows.1</span><br></pre></td></tr></table></figure></p>
+<p>如以上返回版本号，则证明npm、Node.js以及Git都已经安装成功。</p>
+<p>满足安装前提之后，可以进行安装Hexo，在用户指定目录或文件夹下的命令行中输入以下命令进行安装:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt; npm install hexo-cli -g</span><br></pre></td></tr></table></figure></p>
+<p>并且进行验证：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt; hexo v</span><br><span class="line">hexo-cli: 1.1.0</span><br><span class="line">os: Windows_NT 10.0.17134 win32 x64</span><br><span class="line">http_parser: 2.8.0</span><br><span class="line">node: 8.11.4</span><br><span class="line">v8: 6.2.414.54</span><br><span class="line">uv: 1.19.1</span><br><span class="line">zlib: 1.2.11</span><br><span class="line">ares: 1.10.1-DEV</span><br><span class="line">modules: 57</span><br><span class="line">nghttp2: 1.32.0</span><br><span class="line">napi: 3</span><br><span class="line">openssl: 1.0.2p</span><br><span class="line">icu: 60.1</span><br><span class="line">unicode: 10.0</span><br><span class="line">cldr: 32.0</span><br><span class="line">tz: 2017c</span><br></pre></td></tr></table></figure></p>
+<p>到此，所有的安装已经结束。</p>
+<h4 id="搭建个人博客"><a href="#搭建个人博客" class="headerlink" title="搭建个人博客"></a>搭建个人博客</h4><p>在目标文件夹或目录中执行个人博客初始化命令：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt; hexo init</span><br></pre></td></tr></table></figure></p>
+<p>在初始化之后，目录呈现出以下结构:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--node_modules(依赖组件)</span><br><span class="line">--scaffolds(模板文件夹:Hexo的模板是指在新建的markdown文件中默认填充的内容。)</span><br><span class="line">--source(资源文件夹)</span><br><span class="line">  --_posts(文章存放目录:多为md或html后缀的文件)</span><br><span class="line">  --about(“关于”文件存放目录:一个index.md文件)</span><br><span class="line">--themes(存放主题，即网页样式的目录)</span><br><span class="line">--.gitignore</span><br><span class="line">--_config.yml(配置文件:用于配置博客个性化信息)</span><br><span class="line">--package.json(应用程序信息)</span><br><span class="line">--package-lock.json(锁定安装时的包的版本号)</span><br></pre></td></tr></table></figure></p>
+<p>接下来，输入以下命令进行本地测试:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt; hexo generate  简写：hexo g,用于生成静态网页文件。</span><br><span class="line">&gt;&gt; hexo server    简写：hexo s,启动服务器</span><br></pre></td></tr></table></figure></p>
+<p>接下来则访问服务器的默认端口进行网站访问:<br><a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
+<p>网站样式如下:<br><img src="/2019/03/17/hexo_git_blog/../../../../assets/hexo_git_blog_init.png" alt="初始化网站" title="初始化网站"></p>
+<p>到此，个人博客网站已经搭建完毕。更加细节的设置可到Hexo官网查看。</p>
+<h3 id="GitHub-Pages部署"><a href="#GitHub-Pages部署" class="headerlink" title="GitHub Pages部署"></a>GitHub Pages部署</h3><p>在开始之前，你首先得确保完成两件事情:</p>
+<ol>
+<li>注册GitHub账号</li>
+<li>电脑本地上安装好Git</li>
+</ol>
+<h4 id="GitHub建立个人仓库"><a href="#GitHub建立个人仓库" class="headerlink" title="GitHub建立个人仓库"></a>GitHub建立个人仓库</h4><p><strong>步骤如下</strong>:</p>
+<ol>
+<li>登陆GitHub</li>
+<li>找到并点击按钮”New reponsitory”</li>
+<li>创建一个新的、公共的reponsitory,并且命名为&lt;username&gt;.github.io,此处的&lt;username&gt;代表的是你注册GitHub的用户名。</li>
+<li>完成创建</li>
+</ol>
+<p>完成创建之后，GitHub会自动将这个特殊的代码仓库绑定至GitHub Pages上，同时提供访问的域名:https://&lt;username&gt;.github.io/。</p>
+<p>当我们访问这个域名的时候，GitHub会默认地指向仓库中的index.html文件，并以静态页面展示给用户。</p>
+<h4 id="GitHub-配置SSH"><a href="#GitHub-配置SSH" class="headerlink" title="GitHub 配置SSH"></a>GitHub 配置SSH</h4><p>为了能在本地无密上传GitHub,你需要在GitHub上配置在本地上生成的SSH公钥，之后便可更快捷、无密地上传文件，而不用次次输入用户名和密码来登陆。</p>
+<p><strong>步骤如下</strong>:</p>
+<ol>
+<li>Windows:找到本地Git安装目录，打开Git Bash命令行工具;Linux:免去这一步</li>
+<li>在命令行中输入以下命令：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>系统将会在用户目录下的.ssh文件夹中生成两个文件:id_rsa、id_rsa.pub,分别为ssh私钥与公钥。<br>Windows 文件夹:C:\Users\Administrator.ssh<br>Linuex 目录:~/.ssh/</p>
+<ol start="3">
+<li>打开id_rsa.pub，复制其内容</li>
+<li>打开GitHub网站，点击右上角用户头像,点击setting,点击左侧导航栏”SSH and GPG keys”按钮，点击”New SSH Key”按钮</li>
+<li>为允许无密登录你GitHub的电脑起个名字，输入Title,并将拷贝下来的公钥内容复制在Key中，点击添加按钮。</li>
+</ol>
+<p>至此，SSH配置已经成功，注意不要删除与修改.ssh文件夹中两个密钥的任何东西。</p>
+<h4 id="本地博客绑定GitHub仓库"><a href="#本地博客绑定GitHub仓库" class="headerlink" title="本地博客绑定GitHub仓库"></a>本地博客绑定GitHub仓库</h4><p><strong>步骤如下</strong>:</p>
+<ol>
+<li>使用记事本打开本地博客文件夹中的_config.yml文件</li>
+<li>找到deploy参数，修改它的值:<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repository: git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意替换&lt;username&gt;为你的GitHub用户名。</p>
+<ol start="3">
+<li>上传测试:<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g &amp;&amp; hexo d</span><br><span class="line">注意：hexo d 是hexo deploy的简写。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+        </section>
+    </article>
+    
+        <!-- disqus 评论框 start -->
+        <div class="comment">
+            <div id="disqus_thread" class="disqus-thread">
+              <i>加载评论框需要翻墙</i>
+            </div>
+        </div>
+        <!-- disqus 评论框 end -->
+    
+    
+        <!-- livere 评论框 start -->
+        <div class="comment">
+            <div id="lv-container" data-id="city" data-uid="your_livere_uid"></div>
+        </div>
+        <!-- livere 评论框 end -->
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo"><span class="toc-number">1.</span> <span class="toc-text">Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#搭建个人博客"><span class="toc-number">1.2.</span> <span class="toc-text">搭建个人博客</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub-Pages部署"><span class="toc-number">2.</span> <span class="toc-text">GitHub Pages部署</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GitHub建立个人仓库"><span class="toc-number">2.1.</span> <span class="toc-text">GitHub建立个人仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GitHub-配置SSH"><span class="toc-number">2.2.</span> <span class="toc-text">GitHub 配置SSH</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#本地博客绑定GitHub仓库"><span class="toc-number">2.3.</span> <span class="toc-text">本地博客绑定GitHub仓库</span></a></li></ol></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+<!-- disqus 公共JS代码 -->
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES * * */
+  var disqus_shortname = "your_disqus_shortname";
+  var disqus_identifier = "http://yoursite.com/2019/03/17/hexo_git_blog/";
+  var disqus_url = "http://yoursite.com/2019/03/17/hexo_git_blog/";
+
+  isAgent(getDisqus)
+
+  // determine user agent in China
+  function isAgent(cb) {
+    var url = '//graph.facebook.com/feed?callback=h';
+    var xhr = new XMLHttpRequest();
+    var called = false;
+    xhr.open('GET', url);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+      called = true;
+      cb(true);
+      }
+    };
+    xhr.send();
+    // timeout 1s, this facebook API is very fast.
+    setTimeout(function() {
+      if (!called) {
+      xhr.abort();
+      cb(false)
+      }
+    }, 1000);
+  }
+
+  function getDisqus(isAgent) {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; 
+    dsq.async = true
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq)
+  }
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+<script type="text/javascript">
+  (function(d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+
+      if (typeof LivereTower === 'function') { return; }
+
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+
+      e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2019 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="/lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>
